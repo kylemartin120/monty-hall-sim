@@ -1,0 +1,30 @@
+This repository contains a simulation of the Monty Hall math problem. The
+problem is as follows:
+
+You are on a game show with three doors. Behind one of the doors is a car, and
+behind the other two are goats. The goal is to open the door with the car,
+thereby winning the car. You initially pick one of the doors. Then, the host
+opens a second door, which has a goat behind it. You are then giving the option
+of staying with the first door or switching to the third door (which was
+neither picked by you or opened by the host). Should you switch doors?
+
+This problem has been heavily debated within the math community. However, it
+can be demonstrably shown through simulations that it is better to switch doors.
+Switching leads to the car two out of every three times. The usual reason given
+for this is that the game show host has more information, and has provided some
+of that information based on the door he chose to open. In other words, since
+the host knew which door the car was behind, and chose not to open that, he
+provided additional information.
+
+The goal of this simulation is to test whether that reasoning is accurate. To do
+this, two types of simulations can be run: one in which the host knows which
+door the car is behind, and one in which the host has no additional information,
+and a door is chosen at random. In the simulation where the door is chosen at
+random, there will be cases in which the door with the car is opened by the
+host. Only the cases in which the randomly selected door reveals a goat will be
+counted in the simulation statistics.
+
+There are two files (besides this README) within the repository: a dot-c and
+dot-h, both of which are named montyHall. The header file is used to declare
+any helper functions, while the C file contains the function definitions and
+main function.
