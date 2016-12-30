@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <montyHall.h>
 #include <math.h>
 #include <time.h>
+#include "montyHall.h"
 
 int main()
 {

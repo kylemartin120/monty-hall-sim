@@ -1,3 +1,6 @@
+#ifndef MONTY_HALL_H_
+#define MONTY_HALL_H_
+
 #define SWTICH 1 // the contestant should have switched
 #define STAY 0 // the contestant should have stayed
 #define CAR -1 // the host revealed the car
@@ -20,3 +23,4 @@ int playGame(int knows);
  */
 int randInt(int max);
 
+#endif
