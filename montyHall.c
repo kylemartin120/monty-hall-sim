@@ -9,7 +9,7 @@ int main()
   int thisNum;
 
   thisNum = randInt(3);
-  printf("thisNum = %d\n", int);
+  printf("thisNum = %d\n", thisNum);
   return EXIT_SUCCESS;
 }
 
@@ -34,7 +34,7 @@ int randInt(int max)
 
   for (i = max - 1; i > 0; i--)
     {
-      if (temp > ((i * MAX_RAND) / max))
+      if (temp > ((i * RAND_MAX) / max))
 	{
 	  randNum = i;
 	  i = 0;
