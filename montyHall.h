@@ -1,8 +1,8 @@
 #ifndef MONTY_HALL_H_
 #define MONTY_HALL_H_
 
-#define SWTICH 1 // the contestant should have switched
-#define STAY 0 // the contestant should have stayed
+#define CHANGE 1 // the contestant should have changed doors
+#define STAY 0 // the contestant should have stayed with the original door
 #define CAR -1 // the host revealed the car
 
 /*
@@ -16,11 +16,5 @@
  * randomly chosen door is opened. In these cases, the function will return -1.
  */
 int playGame(int knows);
-
-/*
- * randInt will generate a random integer greater than or equal to zero and less
- * than max.
- */
-int randInt(int max);
 
 #endif
