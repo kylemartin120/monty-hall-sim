@@ -4,9 +4,7 @@
 #include <time.h>
 #include "montyHall.h"
 
-#define NUM_SIMS 1000000
-
-int main()
+int main(int argc, char * argv[])
 {
   int i; // a counter variable
   int numChanges = 0; // the number of times the contestant should have changed
@@ -17,10 +15,21 @@ int main()
   float stayPer;
   float carPer;
 
-  int knows = 0; // whether the host knows where the car is
-  
+  char input;
+  int knows = -1; // whether the host knows where the car is
+  int numSims = -1;
+
+  if (argc == 3)
+    {
+      knows = atoi(argv[1]);
+      numSims = atoi(argv[2]);
+    }
+  else if (argc == 1)
+    {
+      getInput(&knows, &numSims);
+    }
   srand(time(NULL));
-  for (i = 0; i < NUM_SIMS; i++)
+  for (i = 0; i < numSims; i++)
     {
       result = playGame(knows);
       if (result == CHANGE)
@@ -37,9 +46,9 @@ int main()
 	}
     }
 
-  changePer = (float) numChanges / NUM_SIMS;
-  stayPer = (float) numStays / NUM_SIMS;
-  carPer = (float) numCars / NUM_SIMS;
+  changePer = (float) numChanges / numSims;
+  stayPer = (float) numStays / numSims;
+  carPer = (float) numCars / numSims;
   
   printf("Contestant should switch = %.3f\n", changePer);
   printf("Contestant should stay = %.3f\n", stayPer);
@@ -72,4 +81,40 @@ int playGame(int knows)
     {
       return CHANGE;
     }
+}
+
+void getInput(int * knows, int * numSims)
+{
+  char input[1];
+
+  *knows, *numSims = -1;
+  do
+    {
+      printf("Does the host know which door contains the car? (y/n): ");
+      scanf("%s", input);
+      if (input[0] == 'y' || input[0] == 'Y')
+	{
+	  *knows = 1;
+	}
+      else if (input[0] == 'n' || input[0] == 'N')
+	{
+	  *knows = 0;
+	}
+      else
+	{
+	  printf("You did not enter a valid character.\n");
+	}
+    } while (*knows == -1);
+
+  do
+    {
+      printf("How many simulations would you like to run?: ");
+      scanf("%d", numSims);
+      if (*numSims <= 0)
+	{
+	  printf("Please enter an integer greater than 0.\n");
+	}
+    } while (*numSims <= 0);
+
+  return;
 }
