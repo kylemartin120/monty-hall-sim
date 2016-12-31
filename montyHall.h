@@ -17,4 +17,11 @@
  */
 int playGame(int knows);
 
+/*
+ * If the user did not provide command line arguments, getInput will ask the
+ * user whether the host knows where the car is and the number of simulations
+ * to run. The function will also check the validity of the inputs.
+ */
+int getInput(int * knows, int * numSims);
+
 #endif
