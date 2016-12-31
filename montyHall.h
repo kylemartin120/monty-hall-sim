@@ -22,6 +22,6 @@ int playGame(int knows);
  * user whether the host knows where the car is and the number of simulations
  * to run. The function will also check the validity of the inputs.
  */
-int getInput(int * knows, int * numSims);
+void getInput(int * knows, int * numSims);
 
 #endif
